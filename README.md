@@ -1,2 +1,2 @@
 # Frontend_practice
-dfmkldf
+This is my frontend practice platform
