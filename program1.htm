@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form Validation</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Login Form</h2>
+
+<form id="loginForm" onsubmit="return validateForm()">
+    <label>Username:</label><br>
+    <input type="text" id="username"><br>
+    <span id="userError" class="error"></span><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="password"><br>
+    <span id="passError" class="error"></span><br><br>
+
+    <button type="submit">Login</button>
+</form>
+
+<script>
+function validateForm() {
+
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    let userError = document.getElementById("userError");
+    let passError = document.getElementById("passError");
+
+    // Clear previous errors
+    userError.textContent = "";
+    passError.textContent = "";
+
+    let isValid = true;
+
+    // Username validation
+    if (username === "") {
+        userError.textContent = "Username is required";
+        isValid = false;
+    }
+
+    // Password validation
+    if (password === "") {
+        passError.textContent = "Password is required";
+        isValid = false;
+    } 
+    else if (password.length < 6) {
+        passError.textContent = "Password must be at least 6 characters";
+        isValid = false;
+    }
+
+    return isValid; // prevents submission if false
+}
+</script>
+
+</body>
+</html>
